@@ -521,6 +521,14 @@
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        var loader = document.getElementById('loader');
+        if (loader) {
+            loader.remove();
+        }
+    }, 1200);  
+});
     </script>
     <script src="assets/js/loader.js"></script>
 </body>
