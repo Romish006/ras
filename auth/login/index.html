@@ -1,0 +1,326 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="google-signin-client_id"
+        content="355195929405-ufcc6qii92d5pmpha3vj5cbk9hs8bmf1.apps.googleusercontent.com">
+
+    <title>
+        Welcome to RAS UC - Play and Earn UC in PUBG Mobile
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Remove deprecated platform.js and use new Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen flex flex-col text-gray-200">
+    <header class="w-full bg-gray-900 shadow-lg border-b border-yellow-500">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img alt="RAS UC logo, stylized letters RAS with a gaming controller icon" class="w-12 rounded-lg shadow-lg h-12"
+                    height="48" src="/assets/img/logo.jpg" width="48" />
+                <h1 class="text-yellow-400 text-2xl font-extrabold tracking-wide drop-shadow-lg">
+                    RAS UC
+                </h1>
+            </div>
+            <ul class="hidden md:flex space-x-8 text-yellow-300 font-semibold">
+                <li>
+                    <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="/index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="/index.html#how-to-play">
+                        How to Play
+                    </a>
+                </li>
+                <li>
+                    <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="/index.html#leaderboard">
+                        Лидеры
+                    </a>
+                </li>
+                <li>
+                    <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+            <button aria-label="Toggle menu"
+                class="md:hidden text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" id="menu-btn">
+                <i class="fas fa-bars fa-lg drop-shadow-lg">
+                </i>
+            </button>
+        </nav>
+        <div class="hidden md:hidden bg-yellow-700 text-yellow-100 px-6 py-4 space-y-4 rounded-b-lg shadow-lg" id="mobile-menu">
+            <a class="block hover:text-yellow-400 font-semibold" href="/index.html">
+                Home
+            </a>
+            <a class="block hover:text-yellow-400 font-semibold" href="/index.html#how-to-play">
+                How to Play
+            </a>
+            <a class="block hover:text-yellow-400 font-semibold" href="#">
+                Earn UC
+            </a>
+            <a class="block hover:text-yellow-400 font-semibold" href="#">
+                Leaderboard
+            </a>
+            <a class="block hover:text-yellow-400 font-semibold" href="#">
+                Contact
+            </a>
+        </div>
+    </header>
+    <main class="flex items-center justify-center min-h-screen px-6 mt-10 mb-20">
+        <div class="w-full max-w-md bg-gray-900 bg-opacity-90 backdrop-blur-md rounded-xl shadow-2xl p-10 border border-yellow-500">
+            <h1 class="text-yellow-400 text-4xl font-extrabold mb-8 text-center drop-shadow-lg">
+                Вход в аккаунт
+            </h1>
+            <form action="/auth/login.php" autocomplete="off" class="space-y-8" method="POST">
+                <div>
+                    <label class="block text-yellow-300 font-semibold mb-3" for="login">
+                        Логин
+                    </label>
+                    <input
+                        class="w-full rounded-lg border border-yellow-400 bg-gray-800 bg-opacity-70 text-yellow-200 placeholder-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:border-transparent px-5 py-3 transition duration-300"
+                        id="login" name="login" placeholder="Введите логин" required="" type="text" />
+                </div>
+                <div>
+                    <label class="block text-yellow-300 font-semibold mb-3" for="password">
+                        Пароль
+                    </label>
+                    <input
+                        class="w-full rounded-lg border border-yellow-400 bg-gray-800 bg-opacity-70 text-yellow-200 placeholder-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:border-transparent px-5 py-3 transition duration-300"
+                        id="password" name="password" placeholder="Введите пароль" required="" type="password" />
+                </div>
+                <button
+                    class="w-full bg-yellow-500 hover:bg-yellow-600 transition-colors text-gray-900 font-extrabold rounded-lg py-4 shadow-lg"
+                    type="submit">
+                    Войти
+                </button>
+            </form>
+            <div class="mt-4 flex items-center justify-center space-x-3 text-yellow-300 font-semibold">
+                <span>
+                    или
+                </span>
+            </div>
+
+            <div class="mt-8 w-full flex items-center justify-center">
+                <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
+                <script type="text/javascript">
+                    if ('VKIDSDK' in window) {
+                        const VKID = window.VKIDSDK;
+
+                        VKID.Config.init({
+                            app: 52758755,
+                            redirectUrl: 'https://zm33wdgz-5500.euw.devtunnels.ms/',
+                            responseMode: VKID.ConfigResponseMode.Callback,
+                            source: VKID.ConfigSource.LOWCODE,
+                            scope: '', // Заполните нужными доступами по необходимости
+                        });
+
+                        const oneTap = new VKID.OneTap();
+
+                        oneTap.render({
+                            container: document.currentScript.parentElement,
+                            scheme: 'dark',
+                            showAlternativeLogin: true,
+                            oauthList: [
+                                'mail_ru',
+                                'ok_ru'
+                            ]
+                        })
+                            .on(VKID.WidgetEvents.ERROR, vkidOnError)
+                            .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
+                                const code = payload.code;
+                                const deviceId = payload.device_id;
+
+                                VKID.Auth.exchangeCode(code, deviceId)
+                                    .then(vkidOnSuccess)
+                                    .catch(vkidOnError);
+                            });
+
+                        function vkidOnSuccess(data) {
+                            // Обработка полученного результата
+                        }
+
+                        function vkidOnError(error) {
+                            // Обработка ошибки
+                        }
+                    }
+                </script>
+            </div>
+            <div class="mt-8 flex items-center justify-center space-x-3 text-gray-100 font-semibold">
+                <span>
+                    Нет аккаунта? <a href="/privacypolicy/" class="text-link" style="color:#FCD34D;">Создать аккаунт</a>
+                </span>
+            </div>
+            <div class="mt-6 flex items-center justify-center space-x-3 text-yellow-300 font-semibold">
+                <span>
+                    <a href="/privacypolicy/">Политика конфиденциальности</a>
+                </span>
+            </div>
+        </div>
+
+    </main>
+    <footer class="bg-gray-900 border-t border-yellow-500 text-yellow-300 py-12 mt-auto">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-yellow-500 pb-10">
+                <div>
+                    <h4 class="text-yellow-400 text-xl font-extrabold mb-4 drop-shadow-lg">
+                        About RAS UC
+                    </h4>
+                    <p class="text-yellow-300 leading-relaxed">
+                        RAS UC is your ultimate platform to play PUBG Mobile, compete with players worldwide, and earn
+                        UC rewards to enhance your gaming experience. Join us and level up your gameplay!
+                    </p>
+                    <img alt="RAS UC logo, stylized letters RAS with a gaming controller icon" class="w-20 mt-6 rounded-lg shadow-lg"
+                        height="80"
+                        src="https://storage.googleapis.com/a1aa/image/cbc5a45c-2489-4e12-4a55-4f71ac9531a5.jpg"
+                        width="80" />
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 text-xl font-extrabold mb-4 drop-shadow-lg">
+                        Quick Links
+                    </h4>
+                    <ul class="space-y-2 text-yellow-300">
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#how-to-play">
+                                How to Play
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                                Earn UC
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#leaderboard">
+                                Leaderboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 text-xl font-extrabold mb-4 drop-shadow-lg">
+                        Support
+                    </h4>
+                    <ul class="space-y-2 text-yellow-300">
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                                FAQ
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                                Terms of Service
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                                Refund Policy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 text-xl font-extrabold mb-4 drop-shadow-lg">
+                        Contact Us
+                    </h4>
+                    <p class="text-yellow-300 mb-4">
+                        Have questions? Reach out to our support team.
+                    </p>
+                    <p class="flex items-center space-x-3 text-yellow-300 mb-2">
+                        <i class="fas fa-map-marker-alt text-yellow-400 drop-shadow-lg">
+                        </i>
+                        <span>
+                            123 Gaming St, Esports City, GameLand
+                        </span>
+                    </p>
+                    <p class="flex items-center space-x-3 text-yellow-300 mb-2">
+                        <i class="fas fa-phone-alt text-yellow-400 drop-shadow-lg">
+                        </i>
+                        <span>
+                            +1 (234) 567-8901
+                        </span>
+                    </p>
+                    <p class="flex items-center space-x-3 text-yellow-300 mb-4">
+                        <i class="fas fa-envelope text-yellow-400 drop-shadow-lg">
+                        </i>
+                        <span>
+                            support@rasuc.com
+                        </span>
+                    </p>
+                    <div class="flex space-x-6">
+                        <a aria-label="Facebook" class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                            <i class="fab fa-facebook fa-lg drop-shadow-lg">
+                            </i>
+                        </a>
+                        <a aria-label="Twitter" class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                            <i class="fab fa-twitter fa-lg drop-shadow-lg">
+                            </i>
+                        </a>
+                        <a aria-label="Instagram" class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                            <i class="fab fa-instagram fa-lg drop-shadow-lg">
+                            </i>
+                        </a>
+                        <a aria-label="telegram" class="hover:text-yellow-400 transition duration-300 ease-in-out" href="#">
+                            <i class="fab fa-telegram fa-lg drop-shadow-lg">
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 text-center text-yellow-400 text-sm drop-shadow-lg">
+                <p>
+                    © 2025 RAS UC. All rights reserved.
+                </p>
+                <p class="mt-2">
+                    Designed and developed with <a href="https://coderaider.ru" class="text-link">Code Raider</a> for
+                    PUBG Mobile fans.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
+</create_file>
